@@ -1,0 +1,9 @@
+.resultCard {
+  position: relative;
+  width: 80%;
+  height: 20vh;
+  top: -10vh;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
