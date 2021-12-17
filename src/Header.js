@@ -64,17 +64,8 @@ const ButtonWrapper = styled.button`
   }
 `;
 
-const Header = () => {
+const Header = (props) => {
   const [enteredIpAdd, setEnteredIpAdd] = useState("");
-  const [ipLocDetails, setIpLocDetails] = useState({
-    resIpAddress: "8.8.8.8",
-    resCity: "Mountain View",
-    resCountry: "US",
-    resTimezone: "-07:00",
-    resIsp: "Google LLC",
-    resLat: "37.40599",
-    resLng: "-122.078514",
-  });
 
   const ipAddChangeHandler = (event) => {
     setEnteredIpAdd(event.target.value);
@@ -89,15 +80,7 @@ const Header = () => {
         },
       });
       const data = response.data;
-      setIpLocDetails({
-        resIpAddress: data.ip,
-        resCity: data.location.city,
-        resCountry: data.location.country,
-        resTimezone: data.location.timezone,
-        resIsp: data.isp,
-        resLat: data.location.lat,
-        resLng: data.location.lng,
-      });
+      props.updateIpLocDetails(data);
     } catch (error) {
       if (error.response) {
         console.log(error.response.data);
@@ -132,7 +115,10 @@ const Header = () => {
           </ButtonWrapper>
         </FormWrapper>
       </HeaderWrapper>
-      <ResultCard className={classes.resultCard} ipResponse={ipLocDetails} />
+      <ResultCard
+        className={classes.resultCard}
+        ipResponse={props.ipLocDetails}
+      />
     </>
   );
 };

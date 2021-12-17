@@ -1,8 +1,17 @@
 import React, { useState } from "react";
-import Header from "./Header";
-import Map from "./Map";
 
-const App = () => {
+export const IpGeoLocContext = React.createContext({
+  resIpAddress: "",
+  resCity: "",
+  resCountry: "",
+  resTimezone: "",
+  resIsp: "",
+  resLat: "",
+  resLng: "",
+  updateIpLocDetails: (data) => {},
+});
+
+const IpGeoLocProvider = (props) => {
   const [ipLocDetails, setIpLocDetails] = useState({
     resIpAddress: "8.8.8.8",
     resCity: "Mountain View",
@@ -25,15 +34,16 @@ const App = () => {
     });
   };
 
+  const value = {
+    ...ipLocDetails,
+    updateIpLocDetails,
+  };
+
   return (
-    <>
-      <Header
-        ipLocDetails={ipLocDetails}
-        updateIpLocDetails={updateIpLocDetails}
-      />
-      <Map ipLocDetails={ipLocDetails} />
-    </>
+    <IpGeoLocContext.Provider value={value}>
+      {props.children}
+    </IpGeoLocContext.Provider>
   );
 };
 
-export default App;
+export default IpGeoLocProvider;
