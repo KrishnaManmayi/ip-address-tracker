@@ -41,8 +41,8 @@ const InputWrapper = styled.input`
   font-size: 18px;
   font-weight: 400;
 
-  @media (max-width: 375px) {
-    width: 80vw;
+  @media (max-width: 576px) {
+    width: 70vw;
     font-size: 16px;
   }
 
@@ -63,7 +63,7 @@ const ButtonWrapper = styled.button`
     height: 30%;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 576px) {
     width: 10vw;
   }
 `;
