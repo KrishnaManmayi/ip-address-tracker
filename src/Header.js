@@ -79,7 +79,7 @@ const Header = (props) => {
     try {
       const response = await geoLocationApi.get("country,city", {
         params: {
-          apiKey: process.env.REACT_GEOLOC_API_KEY,
+          apiKey: process.env.REACT_APP_GEOLOC_API_KEY,
           ipAddress: ipAddress,
         },
       });
