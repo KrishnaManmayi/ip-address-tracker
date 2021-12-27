@@ -29,6 +29,13 @@
   bottom: 1px;
 }
 
+@media (max-width: 500px) {
+  .attribution {
+    right: 0;
+    bottom: 13px;
+  }
+}
+
 .attribution a {
   color: hsl(228, 45%, 44%);
 }

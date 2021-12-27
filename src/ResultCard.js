@@ -9,7 +9,7 @@ const ResultCardWrapper = styled.div`
   justify-content: center;
   align-content: center;
 
-  @media (max-width: 375px) {
+  @media (max-width: 576px) {
     flex-direction: column;
     justify-content: center;
   }
@@ -41,6 +41,10 @@ const ResultBlock = styled.div`
   }
 
   @media (max-width: 576px) {
+    border: none;
+    width: 80%;
+    margin: 0.5rem auto;
+    text-align: center;
     p {
       :first-child {
         font-size: 10px;
@@ -52,11 +56,6 @@ const ResultBlock = styled.div`
   }
 
   @media (max-width: 375px) {
-    border: none;
-    width: 80%;
-    margin: 0.5rem auto;
-    text-align: center;
-
     p {
       :first-child {
         font-size: 12px;
