@@ -11,7 +11,6 @@ const ChangeView = ({ center, zoom }) => {
 const Map = (props) => {
   const lat = parseInt(props.ipLocDetails.resLat);
   const lng = parseInt(props.ipLocDetails.resLng);
-  console.log(lat + " " + lng);
   return (
     <MapContainer center={[lat, lng]} zoom={8}>
       <ChangeView center={[lat, lng]} zoom={8} />

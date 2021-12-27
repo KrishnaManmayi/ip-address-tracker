@@ -5,7 +5,7 @@
 .resultCard {
   position: absolute;
   width: 80%;
-  height: 20vh;
+  min-height: 20vh;
   top: 25vh;
   left: 10%;
   margin: auto;
@@ -16,7 +16,7 @@
 
 @media (max-width: 375px) {
   .resultCard {
-    height: 46vh;
+    min-height: 46vh;
     top: 23vh;
   }
 }
@@ -24,7 +24,11 @@
 .attribution {
   font-size: 11px;
   text-align: center;
+  z-index: 101;
+  position: absolute;
+  bottom: 1px;
 }
+
 .attribution a {
   color: hsl(228, 45%, 44%);
 }

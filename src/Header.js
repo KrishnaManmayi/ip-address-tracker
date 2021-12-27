@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 import patternBg from "./assets/pattern-bg.png";
 import iconArrow from "./assets/icon-arrow.svg";
@@ -43,6 +45,10 @@ const InputWrapper = styled.input`
     width: 80vw;
     font-size: 16px;
   }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const ButtonWrapper = styled.button`
@@ -51,6 +57,7 @@ const ButtonWrapper = styled.button`
   border-radius: 0 10px 10px 0;
   border: none;
   background-color: hsl(0, 0%, 17%);
+  cursor: pointer;
 
   img {
     height: 30%;
@@ -72,7 +79,7 @@ const Header = (props) => {
     try {
       const response = await geoLocationApi.get("country,city", {
         params: {
-          apiKey: "at_H0dQ5NDF6r5uhuqIzRqyZ9nHAC8q6",
+          apiKey: process.env.REACT_GEOLOC_API_KEY,
           ipAddress: ipAddress,
         },
       });
@@ -83,9 +90,12 @@ const Header = (props) => {
         console.log(error.response.data);
         console.log(error.response.status);
         console.log(error.response.headers);
+        toast.error(error.response.data.messages, { autoClose: 3000 });
       } else if (error.request) {
+        toast.error("Unresponsive. Please try later");
         console.log(error.request);
       } else {
+        toast.error("Unresponsive. Please try later");
         console.log("Error", error.message);
       }
     }
@@ -93,6 +103,10 @@ const Header = (props) => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
+    if (enteredIpAdd === "") {
+      toast.warn("Enter an IP address", { autoClose: 3000 });
+      return;
+    }
     fetchIpLocation(enteredIpAdd);
     setEnteredIpAdd("");
   };
@@ -112,6 +126,7 @@ const Header = (props) => {
           </ButtonWrapper>
         </FormWrapper>
       </HeaderWrapper>
+      <ToastContainer />
     </>
   );
 };

@@ -40,6 +40,17 @@ const ResultBlock = styled.div`
     }
   }
 
+  @media (max-width: 576px) {
+    p {
+      :first-child {
+        font-size: 10px;
+      }
+      :last-child {
+        font-size: 1em;
+      }
+    }
+  }
+
   @media (max-width: 375px) {
     border: none;
     width: 80%;
@@ -49,12 +60,9 @@ const ResultBlock = styled.div`
     p {
       :first-child {
         font-size: 12px;
-        letter-spacing: 1px;
-        margin-bottom: 5px;
       }
       :last-child {
         font-size: 1.1em;
-        font-weight: 500;
       }
     }
   }
