@@ -4,11 +4,14 @@ import styled from "styled-components";
 const ResultCardWrapper = styled.div`
   background-color: white;
   color: black;
-  padding: 18px;
+  padding: 1.2rem;
   display: flex;
+  justify-content: center;
+  align-content: center;
 
   @media (max-width: 375px) {
     flex-direction: column;
+    justify-content: center;
   }
 `;
 
@@ -50,7 +53,7 @@ const ResultBlock = styled.div`
         margin-bottom: 5px;
       }
       :last-child {
-        font-size: 1.1rem;
+        font-size: 1.1em;
         font-weight: 500;
       }
     }

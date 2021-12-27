@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import classes from "./App.module.css";
+
 import Header from "./Header";
 import Map from "./Map";
+import ResultCard from "./ResultCard";
 
 const App = () => {
   const [ipLocDetails, setIpLocDetails] = useState({
@@ -26,13 +29,22 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className={classes.app}>
       <Header
         ipLocDetails={ipLocDetails}
         updateIpLocDetails={updateIpLocDetails}
       />
       <Map ipLocDetails={ipLocDetails} />
-    </>
+      <ResultCard className={classes.resultCard} ipResponse={ipLocDetails} />
+      <div className={classes.attribution}>
+        Challenge by{" "}
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+          Frontend Mentor
+        </a>
+        . Coded by{" "}
+        <a href="https://github.com/KrishnaManmayi">Krishna Manmayi</a>.
+      </div>
+    </div>
   );
 };
 

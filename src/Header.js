@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import patternBg from "./assets/pattern-bg.png";
 import iconArrow from "./assets/icon-arrow.svg";
-import ResultCard from "./ResultCard";
-import classes from "./Header.module.css";
 import geoLocationApi from "./api/geoLocation";
 
 const HeaderWrapper = styled.div`
-  position: relative;
   background-image: url(${patternBg});
   background-size: cover;
   width: 100%;
@@ -115,10 +112,6 @@ const Header = (props) => {
           </ButtonWrapper>
         </FormWrapper>
       </HeaderWrapper>
-      <ResultCard
-        className={classes.resultCard}
-        ipResponse={props.ipLocDetails}
-      />
     </>
   );
 };
